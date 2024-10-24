@@ -16,9 +16,9 @@ def vector3(a, b, c):
     vc = vector(b, c)
     return vector(a, vc)
 
-a = [1, 2, 3]
-b = [4, 5, 6]
-c = [7, 8, 9]
+a = [5, 2, 3]
+b = [4, 5, 2]
+c = [5, 3, 4]
 print("Скалярное произведение:", scalar(a, b))
 print("Векторное произведение:", vector(a, b))
 print("Скалярное смешанное произведение:", scalar3(a, b, c))

@@ -1,6 +1,4 @@
-pi = 2.0
+pi=2.0
 for i in range(1, 100000):
-    left = (2.0 * i)/(2.0 * i - 1.0)
-    right = (2.0 * i)/(2.0 * i + 1.0)
-    pi = pi * left * right
+    pi *= ((4.0*i**2.0)/(4.0*i**2.0-1.0))
 print(pi)

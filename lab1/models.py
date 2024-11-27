@@ -38,11 +38,3 @@ print(f"Added customer with ID: {new_customer.id}")
 
 session.add(new_customer)
 session.commit()
-# Получить все альбомы артиста
-
-# Удалить трек
-# track = session.query(Track).filter_by(Name="Some Track").first()
-# if track:
-#     session.delete(track)
-#     session.commit()
-#     print("Track deleted.")

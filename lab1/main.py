@@ -8,6 +8,7 @@ session = create_session(engine)
 
 
 # CREATE (Создание)
+
 def add_customer(Id, fname, lname, db, cty, stte, zp):
     try:
         new_customer = Customer(
@@ -21,10 +22,24 @@ def add_customer(Id, fname, lname, db, cty, stte, zp):
         )
         session.add(new_customer)
         session.commit()
+        print(f"Customer '{fname}' added with ID: {new_customer.id}")
     except Exception as e:
         print(f"Произошла ошибка: {e}")
-    print(f"Customer '{fname}' added with ID: {new_customer.id}")
     return new_customer.id
+
+
+
+def add_list_of_customers(customers):
+    abc=""
+    for customer in customers.values():
+        try:
+            abc+=customer["first_name"]+" "
+            add_customer(customer["id"], customer["first_name"], customer["last_name"], customer["dob"], customer["city"], customer["state"], customer["zip"])
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
+    print(f"Добавленные пользователи: {abc}")
+    print(f"Количество добавленных пользователей: {len(dct_person)}")
+
 
 
 # READ (Чтение)
@@ -36,6 +51,7 @@ def get_customer_by_id(customer_id):
     else:
         print(f"Customer with ID {customer_id} not found.")
         return None
+
 
 
 def get_customers_by_state(customer_state):
@@ -76,24 +92,37 @@ def update_customer_name(customer_id, new_name):
 dct_person={
     "person1":{
         "id": 99999,
-        "name": "vladislav", 
-        "last_name": "drr", 
-        "year": "1999-10-12", 
-        "city":"Moscow", 
-        "US": "1995251"
+        "first_name": "vladislav",
+        "last_name": "drr",
+        "dob": "1999-10-12",
+        "city": "Moscow",
+        "state": "US",
+        "zip": "1995251"
+},
+    "person2":{
+        "id": 99998,
+        "first_name": "maxim",
+        "last_name": "drr",
+        "dob": "2000-10-12",
+        "city": "Moscow",
+        "state": "MN",
+        "zip": "1995234"
+},
+    "person3":{
+        "id": 99997,
+        "first_name": "alexei",
+        "last_name":"drr",
+        "dob": "1997-10-12",
+        "city": "Tomsk",
+        "state": "US",
+        "zip": "1995892"
 }
-    2: '99998, "maxim", "drr", "2000-10-12", "Moscow", "MN", "1995234"',
-    3: '99997, "alexei", "drr", "1997-10-12", "Tomsk", "US", "1995892"'
 }
-first=dict[1]
-second=dict[2]
-third=dict[3]
-print(first)
 # Примеры использования
 if __name__ == "__main__":
     try:
         # Создание
-        customer_id = add_customer(99999, "vladislav", "drr", "1999-10-12", "Moscow", "US", "1995251")
+        add_list_of_customers(dct_person)
         # Измененеие имени пользователя по айди
         update_customer_name(99999, "Murat")
         # Поиск по айди
@@ -102,5 +131,8 @@ if __name__ == "__main__":
         print(get_customers_by_state("MN"))
         # Удаление пользователя
         delete_customer(99999)
+        delete_customer(99998)
+        delete_customer(99997)
     except Exception as e:
         print(f"Произошла ошибка: {e}")
+

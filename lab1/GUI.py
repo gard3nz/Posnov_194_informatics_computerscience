@@ -4,7 +4,6 @@ from crud_interface import Ui_MainWindow  # Импортируем сгенер�
 from models import setup_database, create_session, Customer  # Импортируем ORM
 from main_2 import add_customer, get_customer_by_id, get_all_customers, delete_customer, update_customer_name, get_customers_by_state
 
-# Инициализация базы данных
 engine = setup_database("sqlite:///customer.sqlite")
 session = create_session(engine)
 
@@ -34,7 +33,7 @@ class MainWindow(QMainWindow):
                 zp=self.ui.lineEdit_7.text()
             )
             QMessageBox.information(self, "Success", f"Customer added with ID: {customer_id}")
-            self.show_all_customers()  # Обновляем таблицу
+            self.show_all_customers() 
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
 
@@ -71,10 +70,8 @@ class MainWindow(QMainWindow):
         self.show_all_customers()  # Обновляем таблицу
 
     def show_all_customers(self):
-        # Очищаем таблицу
         self.ui.tableWidget.setRowCount(0)
 
-        # Заполняем таблицу данными
         customers = get_all_customers()
         for customer in customers:
             row = self.ui.tableWidget.rowCount()

@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QMessageBox
-from crud_interface import Ui_MainWindow  # Импортируем сгенерированный UI-код
-from models import setup_database, create_session, Customer  # Импортируем ORM
+from crud_interface import Ui_MainWindow
+from models import setup_database, create_session, Customer
 from main_2 import add_customer, get_customer_by_id, get_all_customers, delete_customer, update_customer_name, get_customers_by_state
 
 engine = setup_database("sqlite:///customer.sqlite")
@@ -59,7 +59,7 @@ class MainWindow(QMainWindow):
         customer = update_customer_name(customer_id, new_name)
         if customer:
             QMessageBox.information(self, "Success", f"Customer ID {customer_id} updated to '{new_name}'")
-            self.show_all_customers()  # Обновляем таблицу
+            self.show_all_customers()
         else:
             QMessageBox.information(self, "Not Found", f"Customer with ID {customer_id} not found.")
 
@@ -67,7 +67,7 @@ class MainWindow(QMainWindow):
         customer_id = self.ui.lineEdit.text()
         delete_customer(customer_id)
         QMessageBox.information(self, "Success", f"Customer ID {customer_id} deleted.")
-        self.show_all_customers()  # Обновляем таблицу
+        self.show_all_customers()
 
     def show_all_customers(self):
         self.ui.tableWidget.setRowCount(0)

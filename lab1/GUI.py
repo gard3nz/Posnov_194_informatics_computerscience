@@ -13,7 +13,6 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        # Подключение кнопок к функциям
         self.ui.pushButton.clicked.connect(self.add_customer)
         self.ui.pushButton_2.clicked.connect(self.find_customer_by_id)
         self.ui.pushButton_3.clicked.connect(self.find_customers_by_state)

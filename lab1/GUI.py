@@ -1,9 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QMessageBox
-from crud_interface import Ui_MainWindow
+from ui import Ui_MainWindow
 from sqlalchemy import func
-from models import setup_database, create_session, Customer
-from main_2 import add_customer, get_customer_by_id, get_all_customers, delete_customer, update_customer_name, get_customers_by_state
+from orm import setup_database, create_session, Customer
+from CRUD import add_customer, get_customer_by_id, get_all_customers, delete_customer, update_customer_name, get_customers_by_state
 
 engine = setup_database("sqlite:///customer.sqlite")
 session = create_session(engine)

@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Float, DateTime, create_engine
-from sqlalchemy.orm import relationship, sessionmaker
+from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy.orm import  sessionmaker
 from sqlalchemy.orm import declarative_base
 
 # Базовый класс для всех моделей
@@ -31,10 +31,5 @@ def create_session(engine):
 
 engine = setup_database("sqlite:///customer.sqlite")
 session = create_session(engine)
-# Добавить нового артиста
-new_customer = Customer(first_name="New Customer", id="10000")
 
-print(f"Added customer with ID: {new_customer.id}")
-
-session.add(new_customer)
 session.commit()

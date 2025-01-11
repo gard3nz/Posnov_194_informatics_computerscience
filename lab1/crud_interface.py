@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.lineEdit_7.setObjectName("lineEdit_7")
         self.verticalLayout.addWidget(self.lineEdit_7)
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(40, 360, 721, 331))
+        self.tableWidget.setGeometry(QtCore.QRect(60, 450, 711, 331))
         self.tableWidget.setStyleSheet("color: rgb(0, 0, 0);\n"
 "background-color: rgb(130, 69, 49);")
         self.tableWidget.setAlternatingRowColors(False)
@@ -228,6 +228,9 @@ class Ui_MainWindow(object):
         self.pushButton_3.setStyleSheet("background-color: rgb(255, 255, 127);\n"
 "color: rgb(0, 0, 0);")
         self.pushButton_3.setObjectName("pushButton_3")
+        self.label_8 = QtWidgets.QLabel(self.centralwidget)
+        self.label_8.setGeometry(QtCore.QRect(70, 330, 691, 101))
+        self.label_8.setObjectName("label_8")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 878, 21))
@@ -270,6 +273,7 @@ class Ui_MainWindow(object):
         self.pushButton_5.setText(_translate("MainWindow", "Delete Customer"))
         self.pushButton_6.setText(_translate("MainWindow", "Show all Customers"))
         self.pushButton_3.setText(_translate("MainWindow", "Find by State"))
+        self.label_8.setText(_translate("MainWindow", ""))
 
 
 if __name__ == "__main__":

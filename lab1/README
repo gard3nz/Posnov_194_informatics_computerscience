@@ -1,7 +1,7 @@
-crud_interface.py - переделанный ui файл через pyuic
+ui.py - переделанный ui файл через pyuic
 GUI.py - gui-файл
 aaa.ui - ui-файл
 app.py - веб-приложение
-main_2 - CRUD-файл
-models.py - ORM-файл
+CRUD.py - CRUD-файл
+orm.py - ORM-файл
 customer.sqlite - база данных

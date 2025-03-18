@@ -3,7 +3,7 @@ import numpy as np
 import time
 
 start_time = time.time()
-for i in range(0, 10000):
+for i in range(0, 1000):
     a = -3
     b = 3
     n = 10000

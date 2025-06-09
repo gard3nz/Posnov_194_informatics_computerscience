@@ -22,8 +22,6 @@ def create_model(hidden_units, layers):
     model.compile(optimizer='adam', loss='mse')
     return model
 
-
-
 model_P = create_model(128, 3)
 history_P = model_P.fit(x_P, y_P, epochs=500, batch_size=32, verbose=0)
 y_pred_P = model_P.predict(x_P)
@@ -32,27 +30,19 @@ model_g = create_model(128, 3)
 history_g = model_g.fit(x_g, y_g, epochs=500, batch_size=32, verbose=0)
 y_pred_g = model_g.predict(x_g)
 
-
 plt.figure(figsize=(12, 6))
 plt.subplot(1, 2, 1)
 plt.plot(x_P, y_P, label='P(x)', color='blue')
 plt.plot(x_P, y_pred_P, label='Нейросеть', color='red', linestyle='--')
 plt.title('P(x) и его аппроксимация')
-plt.xlabel('x')
-plt.ylabel('y')
 plt.legend()
 
 plt.subplot(1, 2, 2)
 plt.plot(x_g, y_g, label='g(x)', color='blue')
 plt.plot(x_g, y_pred_g, label='Нейросеть', color='red', linestyle='--')
 plt.title('g(x) и его аппроксимация')
-plt.xlabel('x')
-plt.ylabel('y')
 plt.legend()
-
-plt.tight_layout()
 plt.show()
-
 
 print("Пример предсказания P(2.0):", model_P.predict(np.array([[2.0]])))
 print("Реальное значение P(2.0):", P(2.0))

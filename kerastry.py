@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 
 def P(x):
-    return 2.5 * x ** 2 - 2.9 * x ** 4 + 1.4 * x ** 3 - 1.3 * x ** 2 + 2.1 * x - 3
+    return 2.5 * x ** 5 - 2.9 * x ** 4 + 1.4 * x ** 3 - 1.3 * x ** 2 + 2.1 * x - 3
 def g(x):
     return 5 / np.cos(x ** 3 / 2)
 
